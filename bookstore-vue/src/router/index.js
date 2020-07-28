@@ -2,7 +2,7 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
 import About from "../views/About.vue";
-import store from "../store/index"
+import store from "../store/index";
 
 Vue.use(VueRouter);
 
@@ -46,7 +46,24 @@ const router = new VueRouter({
       component: () => import("../views/Checkout.vue"),
       meta: { auth: true },
     },
-
+    {
+      path: "/payment",
+      name: "payment",
+      component: () => import("../views/Payment.vue"),
+      meta: { auth: true },
+    },
+    {
+      path: "/profile",
+      name: "profile",
+      component: () => import("../views/Profile.vue"),
+      meta: { auth: true },
+    },
+    {
+      path: "/my-order",
+      name: "my-order",
+      component: () => import("../views/MyOrder.vue"),
+      meta: { auth: true },
+    },
     {
       path: "*",
       redirect: {
@@ -55,7 +72,6 @@ const router = new VueRouter({
     },
   ],
 });
-
 router.beforeEach((to, from, next) => {
   // jika routing ada meta auth nya
   if (to.matched.some((record) => record.meta.auth)) {

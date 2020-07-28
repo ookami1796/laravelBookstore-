@@ -15,21 +15,21 @@
         <template v-for="(item, index) in carts">
           <v-list-item :key="'cart'+index">
             <v-list-item-avatar>
-              <v-img :src="getImage('/books/' + item.cover)"></v-img>
+              <v-img :src="getImage('/books/'+item.cover)"></v-img>
             </v-list-item-avatar>
 
             <v-list-item-content>
               <v-list-item-title v-html="item.title"></v-list-item-title>
               <v-list-item-subtitle>
-                Rp. {{item.price.toLocaleString('id-ID')}}
-                ({{item.weight}} kg)
+                Rp. {{ item.price.toLocaleString('id-ID') }}
+                ({{ item.weight }} kg)
                 <span
                   style="float:right"
                 >
                   <v-btn icon small rounded depressed @click.stop="removeCart(item)">
                     <v-icon dark color="error">mdi-minus-circle</v-icon>
                   </v-btn>
-                  {{item.quantity}}
+                  {{ item.quantity }}
                   <v-btn icon small rounded depressed @click.stop="addCart(item)">
                     <v-icon dark color="success">mdi-plus-circle</v-icon>
                   </v-btn>
@@ -43,9 +43,9 @@
         <v-card-text>
           <v-layout wrap>
             <v-flex pa-1 xs6>
-              Total Price ({{totalQuantity}} items)
+              Total Price ({{ totalQuantity }} items)
               <br />
-              <span class="title">Rp. {{totalPrice}}</span>
+              <span class="title">Rp. {{ totalPrice.toLocaleString('id-ID') }}</span>
             </v-flex>
             <v-flex pa-1 xs6 text-right>
               <v-btn color="primary" @click="checkout()" :disabled="totalQuantity==0">
@@ -60,17 +60,17 @@
   </v-card>
 </template>
 <script>
-import { mapActions, mapGetters } from 'vuex';
+import { mapGetters, mapActions } from "vuex";
 export default {
-  name: 'cart',
+  name: "cart",
   computed: {
     ...mapGetters({
       carts: "cart/carts",
       countCart: "cart/count",
       totalPrice: "cart/totalPrice",
       totalQuantity: "cart/totalQuantity",
-      totalWeight: "cart/totalWeight"
-    })
+      totalWeight: "cart/totalWeight",
+    }),
   },
   methods: {
     ...mapActions({
@@ -78,7 +78,7 @@ export default {
       setAlert: "alert/set",
       addCart: "cart/add",
       removeCart: "cart/remove",
-      setCart: "cart/set"
+      setCart: "cart/set",
     }),
     checkout() {
       this.$emit("closed", false);
@@ -86,7 +86,7 @@ export default {
     },
     close() {
       this.setStatusDialog(false);
-    }
-  }
+    },
+  },
 };
 </script>

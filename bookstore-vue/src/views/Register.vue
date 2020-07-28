@@ -1,6 +1,6 @@
 <template>
   <v-card>
-    <v-toolbar dark color="primary">
+    <v-toolbar dark color="indigo">
       <v-btn icon dark @click.native="close">
         <v-icon>close</v-icon>
       </v-btn>

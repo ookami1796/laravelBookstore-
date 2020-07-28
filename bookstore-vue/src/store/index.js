@@ -11,27 +11,35 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     sideBar: false,
-    prevurl:'',
-    },
+    prevUrl: "",
+    payment: [],
+  },
   mutations: {
     setSideBar: (state, value) => {
       state.sideBar = value;
     },
-    setPrevUrl:(state, value)=> {
-      state.prevurl=value
+    setPrevUrl: (state, value) => {
+      state.PrevUrl = value;
+    },
+    setPayment: (state, value) => {
+      state.payment = value;
     },
   },
   actions: {
     setSideBar: ({ commit }, value) => {
       commit("setSideBar", value);
     },
-    setPrevUrl:({commit}, value)=>{
-      commit('setPrevUrl', value)
+    setPrevUrl: ({ commit }, value) => {
+      commit("setPrevUrl", value);
+    },
+    setPayment: ({ commit }, value) => {
+      commit("setPayment", value);
     },
   },
   getters: {
-    sideBar: state => state.sideBar,
-    prevurl: state => state.prevurl,
+    sideBar: (state) => state.sideBar,
+    prevUrl: (state) => state.prevUrl,
+    payment: (state) => state.payment,
   },
-  modules: { cart, alert, dialog, auth, region},
+  modules: { cart, alert, dialog, auth, region },
 });

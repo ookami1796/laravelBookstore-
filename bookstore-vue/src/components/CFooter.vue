@@ -1,5 +1,5 @@
 <template>
-  <v-footer dark height="auto" color="primary">
+  <v-footer dark height="auto" color="grey">
     <v-flex xs12>
       <v-card text tile class="white--text text-xs-center" color="primary">
         <!-- menu icon media social media -->

@@ -40,6 +40,7 @@ import Search from "@/views/Search.vue";
 import Login from "@/views/Login.vue";
 import Register from "@/views/Register.vue";
 import Cart from "@/views/Cart.vue";
+import Checkout from "@/views/Checkout.vue";
 export default {
   name: "App",
   components: {
@@ -51,6 +52,7 @@ export default {
     Login,
     Register,
     Cart,
+    Checkout
   },
   methods: {
     ...mapActions({
